@@ -55,7 +55,7 @@ class App extends Component {
     return (
       <div className="general">
         <Identification clickAction = {this.handleClick.bind(this)} show = {this.state.showId}/>
-        <Spreadsheet getData={this.getData.bind(this)} ended={this.state.showEndOfExperiment} didGetTable={this.state.didGetTable} show = {this.state.showSpreadsheet}/>
+        <Spreadsheet id={this.state.id} getData={this.getData.bind(this)} ended={this.state.showEndOfExperiment} didGetTable={this.state.didGetTable} show = {this.state.showSpreadsheet}/>
         <EndOfExperiment sendToServer={this.sendToServer.bind(this)} closeWindow={this.state.didSendToServer} id={this.state.id} show = {this.state.didGetTable} />
       </div>
     );
