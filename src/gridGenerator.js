@@ -32,14 +32,25 @@ export async function getGrid(id) {
         unifiedData.push(line)
     })
 
+    let mostRecent = 0;
+
     participantData.forEach(session => {
         console.log(session)
+        let numberOfEntries = 0;
         for(let i = 0; i < session.results.length; i++){
+            numberOfEntries += session.results[i].length;
             for(let j = 1; j < session.results[i].length; j++){
                 unifiedData[i].push(session.results[i][j]);
             }
         }
+
+        if (mostRecent < numberOfEntries){
+            mostRecent = numberOfEntries;
+            unifiedData = session.results;
+        }
     })
+
+    console.log(participantData)
 
     let max = 0;
 
